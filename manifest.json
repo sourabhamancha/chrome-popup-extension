@@ -1,0 +1,35 @@
+{
+    "manifest_version": 2,
+    "name": "Chrome Popup",
+    "description": "DOM manipulation",
+    "version": "1.0",
+    "icons": {
+        "128": "icon128.png"
+    },
+
+    "page_action": {
+        "default_icon": "icon128.png",
+        "default_title": "Chrome Popup"
+
+    },
+    "background": {
+        "scripts": ["eventPage.js"],
+        "persistent": false
+    },
+
+    "content_scripts": [
+        {
+        "matches": [ "http://*/*", "https://*/*"],
+        "js": ["content.js","jquery-3.3.1.min.js"],
+        "run_at":"document_end"
+        }
+
+       
+    ],
+
+    "permissions": [
+        "tabs",
+        "http://*/*", "https://*/*",
+        "notifications"
+    ]
+}
